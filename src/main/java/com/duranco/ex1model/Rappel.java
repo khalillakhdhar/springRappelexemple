@@ -1,8 +1,12 @@
 package com.duranco.ex1model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
 
@@ -13,7 +17,8 @@ private int id;
 @NotNull
 private String titre;
 @NotNull
-private String date;
+@Temporal(TemporalType.TIMESTAMP)
+private Date date;
 @Null
 private String description;
 @Column(nullable = false)
@@ -30,12 +35,7 @@ public String getTitre() {
 public void setTitre(String titre) {
 	this.titre = titre;
 }
-public String getDate() {
-	return date;
-}
-public void setDate(String date) {
-	this.date = date;
-}
+
 public String getDescription() {
 	return description;
 }
@@ -47,6 +47,12 @@ public String getType() {
 }
 public void setType(String type) {
 	this.type = type;
+}
+public Date getDate() {
+	return date;
+}
+public void setDate(Date date) {
+	this.date = date;
 }
 
 
